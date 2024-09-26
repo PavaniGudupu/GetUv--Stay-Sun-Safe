@@ -1,0 +1,94 @@
+/* Set a fixed background image */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: url('DSC_0156.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the header vertically */
+    align-items: center; /* Center the header horizontally */
+}
+
+/* Style for the header section */
+.header {
+    text-align: center;
+}
+
+/* Style for the h1 (heading) */
+h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+}
+
+/* Style for the p (subheading) */
+p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Style for the card */
+.card {
+    background-color: rgba(185, 137, 6, 0.8); /* Semi-transparent background */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    margin: 20px; /* Margin to avoid touching the edges */
+    transition: transform 0.3s ease;
+}
+
+/* Message hidden by default */
+.message {
+    display: none;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #000000;
+}
+
+/* Show message on hover */
+.card:hover .message {
+    display: block; /* Show the message when hovering over the card */
+}
+
+/* Footer link styles */
+a {
+    position: absolute;
+    bottom: 20px; /* Position 20px from the bottom */
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+/* Hover effects for the link */
+a:hover {
+    color: #affd14; /* Change color on hover */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Adjust viewport scaling */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    a {
+        font-size: 1rem; /* Adjust link size for smaller screens */
+    }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get UV</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    
+    <div class="header">
+        <center>
+            <h1>Vizag UV Alert</h1>
+            <p><i>Stay Sun-Safe with Real-Time UV Index Updates for Visakhapatnam</i></p>
+        </center>
+    </div>
+
+    <div class="card" id="dateCard">
+        <div class="date" id="currentDate"></div> <!-- Date display -->
+        <div class="message">
+            <b><%= uvData !== null ? uvData : "Unable to fetch UV data. Please try again later." %></b>
+        </div>
+    </div>
+
+    <a href="mailto:pavani9419@gmail.com">pavani9419@gmail.com | 2024</a>
+
+    <script>
+        // Function to get today's date
+        function displayDate() {
+            const today = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = today.toLocaleDateString('en-US', options);
+            document.getElementById('currentDate').innerText = dateString;
+        }
+    
+        // Call the function to display the date
+        displayDate();
+    
+        // Get the UV data from the server (ensure it's properly embedded as JavaScript)
+        const uvData = <%- JSON.stringify(uvData) %>;
+
+        // Function to show UV Index and sunscreen advice on hover over the dateCard
+        const dateCard = document.querySelector('#dateCard');
+    
+        dateCard.addEventListener('mouseenter', () => {
+            const message = uvData > 3 ? "UV Index: " + uvData + ". Apply sunscreen!" : "UV Index: " + uvData + ". No sunscreen needed.";
+    
+            // Create and display the UV message in the dateCard
+            const uvMessage = document.createElement('div');
+            uvMessage.id = 'uvMessage';
+            uvMessage.innerText = message;
+            dateCard.appendChild(uvMessage);
+        });
+    
+        dateCard.addEventListener('mouseleave', () => {
+            // Remove the UV message when hover ends
+            const uvMessage = document.getElementById('uvMessage');
+            if (uvMessage) {
+                uvMessage.remove();
+            }
+        });
+    </script>
+    
+</body>
+</html>
